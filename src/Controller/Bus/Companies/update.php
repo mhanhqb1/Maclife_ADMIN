@@ -9,7 +9,7 @@ use Cake\Network\Exception\NotFoundException;
 $data = null;
 $data = Api::call(Configure::read('API.url_companies_detail'), array());
 
-$pageTitle = __('LABEL_COMPANY_UPDATE');
+$pageTitle = __('Cập nhật thông tin website');
 
 // Create breadcrumb
 $this->Breadcrumb->setTitle($pageTitle)
@@ -35,21 +35,9 @@ $this->UpdateForm->reset()
     ))
     ->addElement(array(
         'id' => 'logo',
-        'label' => __('LABEL_LOGO'),
+        'label' => __('Logo'),
         'image' => true,
         'type' => 'file'
-    ))
-    ->addElement(array(
-        'id' => 'tel',
-        'label' => __('LABEL_TEL'),
-    ))
-    ->addElement(array(
-        'id' => 'address',
-        'label' => __('LABEL_ADDRESS'),
-    ))
-    ->addElement(array(
-        'id' => 'email',
-        'label' => __('LABEL_EMAIL'),
     ))
     ->addElement(array(
         'id' => 'facebook',
@@ -60,20 +48,30 @@ $this->UpdateForm->reset()
         'label' => __('LABEL_TWITTER'),
     ))
     ->addElement(array(
-        'id' => 'instagram',
-        'label' => __('LABEL_INSTAGRAM'),
-    ))
-    ->addElement(array(
-        'id' => 'google_plus',
-        'label' => __('LABEL_GOOGLE_PLUS'),
-    ))
-    ->addElement(array(
         'id' => 'youtube',
         'label' => __('LABEL_YOUTUBE'),
     ))
     ->addElement(array(
-        'id' => 'zalo',
-        'label' => __('LABEL_ZALO'),
+        'id' => 'author_name',
+        'label' => __('Tên tác giả'),
+    ))
+    ->addElement(array(
+        'id' => 'author_logo',
+        'label' => __('Hình ảnh tác giả'),
+        'image' => true,
+        'type' => 'file'
+    ))
+    ->addElement(array(
+        'id' => 'author_description',
+        'label' => __('Mô tả tác giả'),
+        'type' => 'textarea',
+        'editor' => true
+    ))
+    ->addElement(array(
+        'id' => 'footer_description',
+        'label' => __('Mô tả footer'),
+        'type' => 'textarea',
+        'editor' => true
     ))
     ->addElement(array(
         'id' => 'seo_image',
@@ -143,6 +141,12 @@ if ($this->request->is('post')) {
             $filename = $data['seo_image']['name'];
             $filedata = $data['seo_image']['tmp_name'];
             $data['seo_image'] = new CurlFile($filedata, $filetype, $filename);
+        }
+        if (!empty($data['author_logo']['name'])) {
+            $filetype = $data['author_logo']['type'];
+            $filename = $data['author_logo']['name'];
+            $filedata = $data['author_logo']['tmp_name'];
+            $data['author_logo'] = new CurlFile($filedata, $filetype, $filename);
         }
         // Call API
         $id = Api::call(Configure::read('API.url_companies_addupdate'), $data);

@@ -56,12 +56,6 @@
                             <span><?php echo __('LABEL_COMPANIES_MANAGEMENT'); ?></span>
                         </a>
                     </li>
-                    <li class="<?php if ($controller == 'about') echo ' active ' ?>">
-                        <a href="<?php echo $BASE_URL;?>/about/update">
-                            <i class="fa fa-circle-o"></i>
-                            <span><?php echo __('Giới thiệu cty'); ?></span>
-                        </a>
-                    </li>
                 </ul>
             </li>
         </ul>
