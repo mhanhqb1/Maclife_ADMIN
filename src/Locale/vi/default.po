@@ -92,7 +92,7 @@ msgid "LABEL_ADD_NEW"
 msgstr "Thêm mới"
 
 msgid "LABEL_ENABLE"
-msgstr "Khôi phục"
+msgstr "Hoạt động"
 
 msgid "LABEL_LIMIT"
 msgstr "Số lượng hiển thị"
@@ -128,7 +128,10 @@ msgid "LABEL_ACTIVE"
 msgstr "Hoạt động"
 
 msgid "LABEL_INACTIVE"
-msgstr "Đã xóa"
+msgstr "Đã ẩn"
+
+msgid "LABEL_DISABLE"
+msgstr "Ẩn"
 
 msgid "LABEL_PAGING_SUMARY"
 msgstr "Hiển thị %s ~ %s của tổng số %s"

@@ -22,7 +22,7 @@ if (!empty($id)) {
     $pageTitle = __('LABEL_ADD_NEW');
 }
 
-$cates = $this->Common->arrayKeyValue($this->showCategories(Api::call(Configure::read('API.url_cates_all')), array()), 'id', 'name');
+$cates = $this->Common->arrayKeyValue(Api::call(Configure::read('API.url_cates_all'), array('parent_id' => 0)), 'id', 'name');
 
 // Create breadcrumb
 $listPageUrl = h($this->BASE_URL . '/cates');
@@ -52,14 +52,10 @@ $this->UpdateForm->reset()
         'required' => true,
     ))
     ->addElement(array(
-        'id' => 'root_id',
+        'id' => 'parent_id',
         'label' => __('LABEL_CATE'),
         'options' => $cates,
         'empty' => '-'
-    ))
-    ->addElement(array(
-        'id' => 'order',
-        'label' => __('LABEL_ORDER_DISPLAY'),
     ))
     ->addElement(array(
         'type' => 'submit',
