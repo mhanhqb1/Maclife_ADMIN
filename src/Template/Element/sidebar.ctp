@@ -32,7 +32,7 @@
             <li class="<?php if (in_array($controller, array('tags'))) echo ' active ' ?>">
                 <a href="<?php echo $BASE_URL; ?>/tags">
                     <i class="fa fa-users"></i>
-                    <span><?php echo __('LABEL_TAG_MANAGEMENT'); ?></span>
+                    <span><?php echo __('Quản lý tag'); ?></span>
                 </a>
             </li>
             

@@ -393,3 +393,6 @@ msgstr "Quản lý liên hệ"
 
 msgid "LABEL_CONTACT_LIST"
 msgstr "Danh sách liên hệ"
+
+msgid "LABEL_TAG_LIST"
+msgstr "Danh sách tag"
