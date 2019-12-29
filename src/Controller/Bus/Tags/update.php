@@ -10,26 +10,24 @@ $data = null;
 if (!empty($id)) {
     // Edit
     $param['id'] = $id;
-    $data = Api::call(Configure::read('API.url_cates_detail'), $param);
+    $data = Api::call(Configure::read('API.url_tags_detail'), $param);
     $this->Common->handleException(Api::getError());
     if (empty($data)) {
         return $this->Flash->error(__('MESSAGE_DATA_NOT_EXIST'));
     }
     
-    $pageTitle = __('LABEL_CATE_UPDATE');
+    $pageTitle = __('LABEL_TAG_UPDATE');
 } else {
     // Create new
     $pageTitle = __('LABEL_ADD_NEW');
 }
 
-$cates = $this->Common->arrayKeyValue(Api::call(Configure::read('API.url_cates_all'), array('parent_id' => 0)), 'id', 'name');
-
 // Create breadcrumb
-$listPageUrl = h($this->BASE_URL . '/cates');
+$listPageUrl = h($this->BASE_URL . '/tags');
 $this->Breadcrumb->setTitle($pageTitle)
     ->add(array(
         'link' => $listPageUrl,
-        'name' => __('LABEL_CATE_LIST'),
+        'name' => __('LABEL_TAG_LIST'),
     ))
     ->add(array(
         'name' => $pageTitle,
@@ -50,12 +48,6 @@ $this->UpdateForm->reset()
         'id' => 'name',
         'label' => __('LABEL_NAME'),
         'required' => true,
-    ))
-    ->addElement(array(
-        'id' => 'parent_id',
-        'label' => __('LABEL_CATE'),
-        'options' => $cates,
-        'empty' => '-'
     ))
     ->addElement(array(
         'type' => 'submit',
@@ -81,7 +73,7 @@ if ($this->request->is('post')) {
     // Validation
     if ($form->validate($data)) {
         // Call API
-        $id = Api::call(Configure::read('API.url_cates_addupdate'), $data);
+        $id = Api::call(Configure::read('API.url_tags_addupdate'), $data);
         if (!empty($id) && !Api::getError()) {            
             $this->Flash->success(__('MESSAGE_SAVE_OK'));
             return $this->redirect("{$this->BASE_URL}/{$this->controller}/update/{$id}");

@@ -396,3 +396,6 @@ msgstr "Danh sách liên hệ"
 
 msgid "LABEL_TAG_LIST"
 msgstr "Danh sách tag"
+
+msgid "LABEL_TAG_UPDATE"
+msgstr "Cập nhật tag"

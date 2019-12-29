@@ -60,8 +60,8 @@ $this->SimpleTable
             'empty' => ''
         ))
         ->addColumn(array(
-            'id' => 'total_product',
-            'title' => __('Tổng số sản phẩm'),
+            'id' => 'total_post',
+            'title' => __('Tổng số bài viết'),
             'empty' => 0
         ))
         ->addColumn(array(
