@@ -29,12 +29,6 @@ $this->SearchForm
             'options' => Configure::read('Config.searchPageSize'),
         ))
         ->addElement(array(
-            'id' => 'disable',
-            'label' => __('LABEL_STATUS'),
-            'options' => Configure::read('Config.searchStatus'),
-            'empty' => 0
-        ))
-        ->addElement(array(
             'type' => 'submit',
             'value' => __('LABEL_SEARCH'),
             'class' => 'btn btn-primary',
@@ -75,14 +69,24 @@ $this->SimpleTable
             'empty' => ''
         ))
         ->addColumn(array(
-            'id' => 'description',
-            'title' => __('LABEL_DESCRIPTION'),
-            'empty' => ''
-        ))
-        ->addColumn(array(
             'id' => 'cate_name',
             'title' => __('LABEL_CATE'),
             'empty' => ''
+        ))
+        ->addColumn(array(
+            'id' => 'total_view',
+            'title' => __('Tổng view'),
+            'empty' => 0
+        ))
+        ->addColumn(array(
+            'id' => 'total_like',
+            'title' => __('Tổng Like'),
+            'empty' => 0
+        ))
+        ->addColumn(array(
+            'id' => 'total_dislike',
+            'title' => __('Tổng Dislike'),
+            'empty' => 0
         ))
         ->addColumn(array(
             'id' => 'created',
@@ -90,24 +94,6 @@ $this->SimpleTable
             'title' => __('LABEL_CREATED'),
             'width' => 100,
             'empty' => '',
-        ))
-        ->addColumn(array(
-            'id' => 'disable',
-            'type' => 'checkbox',
-            'title' => __('LABEL_DELETE'),
-            'toggle' => true,
-            'toggle-onstyle' => "primary",
-            'toggle-offstyle' => "danger",
-            'toggle-options' => array(
-                "data-on" => __("LABEL_ENABLE"),
-                "data-off" => __("LABEL_DELETE"),
-            ),
-            'rules' => array(
-                '0' => '',
-                '1' => 'checked'
-            ),
-            'empty' => 0,
-            'width' => 50,
         ))
         ->addButton(array(
             'type' => 'submit',
