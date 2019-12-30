@@ -7,9 +7,11 @@ use Cake\Network\Exception\NotFoundException;
 
 // Load detail
 $data = null;
+$isUpdate = false;
 if (!empty($id)) {
     // Edit
     $param['id'] = $id;
+    $isUpdate = true;
     $data = Api::call(Configure::read('API.url_posts_detail'), $param);
     $this->Common->handleException(Api::getError());
     if (empty($data)) {
@@ -120,7 +122,12 @@ if ($this->request->is('post')) {
         $id = Api::call(Configure::read('API.url_posts_addupdate'), $data);
         if (!empty($id) && !Api::getError()) {            
             $this->Flash->success(__('MESSAGE_SAVE_OK'));
-            return $this->redirect("{$this->BASE_URL}/{$this->controller}/update/{$id}");
+            if ($isUpdate) {
+                return $this->redirect("{$this->BASE_URL}/{$this->controller}/update/{$id}");
+            } else {
+                return $this->redirect("{$this->BASE_URL}/{$this->controller}");
+            }
+            
         } else {
             return $this->Flash->error(__('MESSAGE_SAVE_NG'));
         }
