@@ -78,7 +78,7 @@
         <script>
             $(function () {
                 //Initialize Select2 Elements
-                $('#tag').select2();
+//                $('#tag').select2();
             });
         </script>
     </body>
