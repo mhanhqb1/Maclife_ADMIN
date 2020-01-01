@@ -104,13 +104,12 @@ class SimpleFormHelper extends AppHelper {
             } elseif (isset($control['phone'])) {
                 // Phone custom
                 $control['placeholder'] = '03-6715-1640';
-                $html .= $this->Form->Input($control['id'],
-                    array_merge(
-                        array(
-                            'class'         => 'phoneInput form-control',
-                            'data-errorId'  => "idError{$control['id']}",
-                            'after'         => "<div class='control-label' id='idError{$control['id']}' style='display: none;'>".__('Phone is invalid')."</div>"
-                            ), $control
+                $html .= $this->Form->Input($control['id'], array_merge(
+                                array(
+                    'class' => 'phoneInput form-control',
+                    'data-errorId' => "idError{$control['id']}",
+                    'after' => "<div class='control-label' id='idError{$control['id']}' style='display: none;'>" . __('Phone is invalid') . "</div>"
+                                ), $control
                         )
                 );
                 unset($control['phone']);
@@ -120,10 +119,10 @@ class SimpleFormHelper extends AppHelper {
                 $_separator = 'form_from_to_separator';
                 $_from_value = !empty($this->request->data[$_from]) ? $this->request->data[$_from] : (!empty($this->request->query[$_from]) ? $this->request->query[$_from] : '');
                 $_to_value = !empty($this->request->data[$_to]) ? $this->request->data[$_to] : (!empty($this->request->query[$_to]) ? $this->request->query[$_to] : '');
-                
+
                 $html .= '<div class="form-group FormFromToContainer">';
                 $html .= $this->Form->label($id, $control['label']);
-                
+
                 $html .= $this->Form->input($_from, array(
                     'label' => false,
                     'id' => $_from,
@@ -135,7 +134,7 @@ class SimpleFormHelper extends AppHelper {
                     'id' => $_to,
                     'value' => $_to_value,
                 ));
-                
+
                 if ($controlType == 'calendar_from_to') {
                     $html .= "<script>
                     document.addEventListener('DOMContentLoaded', function() {
@@ -151,7 +150,7 @@ class SimpleFormHelper extends AppHelper {
                     });
                     </script>";
                 }
-                
+
                 $html .= '</div>';
             } else {
                 if (isset($control['autocomplete']) && !empty($control['options'])) {
@@ -227,8 +226,8 @@ class SimpleFormHelper extends AppHelper {
                 }
                 //datetime
                 if (isset($control['datetime'])) {
-                    $valdate =json_encode( empty($control['value'])?null:$control['value']);
-                    $html .=  "<script>
+                    $valdate = json_encode(empty($control['value']) ? null : $control['value']);
+                    $html .= "<script>
                     document.addEventListener('DOMContentLoaded', function() {
                         $(\".{$control['id']}\").datetimepicker({
                             format: 'YYYY-MM-DD HH:mm',
@@ -243,31 +242,31 @@ class SimpleFormHelper extends AppHelper {
                     </script>";
                     unset($control['datetime']);
                 }
-               
+
                 // KienNH 2016/08/17 begin
                 if (isset($control['add_select_all']) && $control['add_select_all']) {
                     $tmp_id = microtime(true);
                     $html .= '<div class="form-group form-group-scroll">';
                     $html .= '<label>' . $control['label'] . '</label>';
-                    
+
                     $html .= '<div class="form-control form-control-select-all">';
                     $html .= '<input type="checkbox" id="' . $tmp_id . '" class="checkbox_select_all" data-target="' . $control['id'] . '[]">';
                     $html .= '<label for="' . $tmp_id . '">' . __('All') . '</label>';
                     $html .= '</div>';
-                    
+
                     $control['label'] = false;
                     $html .= $this->Form->input($id, $control);
                     $html .= '</div>';
-                }else if(isset($control['multiple_select']) && $control['multiple_select']){
+                } else if (isset($control['multiple_select']) && $control['multiple_select']) {
                     $tmp_id = microtime(true);
                     $html .= '<div class="form-group form-group-scroll">';
                     $html .= '<label>' . $control['label']['text'] . '</label>';
-                    
+
                     $html .= '<div class="form-control form-control-select-all" style="padding:10px;border:none;">';
                     $html .= '<input onclick="checkAll(\'instagram_username[]\', this.checked ? 1 : 0)" type="checkbox" id="' . $tmp_id . '" class="checkbox_select_all" data-target="' . $control['id'] . '[]">';
                     $html .= '<label for="' . $tmp_id . '">' . __('All') . '</label>';
                     $html .= '</div>';
-                    
+
                     $control['label'] = false;
                     $html .= $this->Form->input($id, $control);
                     $html .= '</div>';

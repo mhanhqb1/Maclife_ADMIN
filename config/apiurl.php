@@ -33,3 +33,5 @@ Configure::write('API.url_reports_general', 'reports/general');
 
 Configure::write('API.url_pages_addupdate', 'pages/addupdate');
 Configure::write('API.url_pages_detail', 'pages/detail');
+
+Configure::write('API.url_tags_all', 'tags/all');

@@ -17,6 +17,9 @@
         <link rel="stylesheet" href="<?php echo $BASE_URL ?>/adminlte/dist/css/skins/skin-blue.min.css?<?php echo VERSION_DATE ?>"/>
         <link rel="stylesheet" href="<?php echo $BASE_URL ?>/adminlte/plugins/pace/pace.min.css"/>
         <link rel="stylesheet" href="<?php echo $BASE_URL ?>/css/bootstrap-toggle.min.css"/>
+
+        <!-- Select2 -->
+        <link rel="stylesheet" href="<?php echo $BASE_URL ?>/adminlte/bower_components/select2/dist/css/select2.min.css">
         <link rel="stylesheet" href="<?php echo $BASE_URL ?>/css/style.css?<?php echo VERSION_DATE ?>"/>
 
         <!--[if lt IE 9]>
@@ -41,14 +44,14 @@
                         <?php echo $this->Breadcrumb->render($breadcrumb, $breadcrumbTitle); ?>
                     </section>
                 <?php endif ?>
-                
+
                 <section class="content">
                     <?php echo $this->Flash->render() ?>
                     <?php echo $this->fetch('content'); ?>
                     <?php echo $this->element('popup'); ?>
                 </section>
             </div>
-            
+
             <!-- Start Footer -->
             <?php echo $this->element('footer'); ?>
             <!-- End Footer -->
@@ -68,8 +71,16 @@
         <script type="text/javascript" src="<?php echo $BASE_URL ?>/js/bootstrap-toggle.min.js"></script>
         <script type="text/javascript" src="<?php echo $BASE_URL ?>/adminlte/plugins/pace/pace.min.js"></script>
         <script type="text/javascript" src="<?php echo $BASE_URL ?>/adminlte/dist/js/adminlte.min.js"></script>
+        <!-- Select2 -->
+        <script src="<?php echo $BASE_URL ?>/adminlte/bower_components/select2/dist/js/select2.full.min.js"></script>
         <script type="text/javascript" src="<?php echo $BASE_URL ?>/js/functions.js?<?php echo VERSION_DATE ?>"></script>
         <script type="text/javascript" src="<?php echo $BASE_URL ?>/js/common.js?<?php echo VERSION_DATE ?>"></script>
+        <script>
+            $(function () {
+                //Initialize Select2 Elements
+                $('#tag').select2();
+            });
+        </script>
     </body>
 </html>
 
