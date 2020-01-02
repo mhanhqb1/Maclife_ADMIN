@@ -147,3 +147,6 @@ td, th {
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
     color: #000;
 }
+.btn-addnew {
+    margin-left: 10px
+}
