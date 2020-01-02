@@ -40,6 +40,12 @@ $this->UpdateForm->reset()
         'type' => 'file'
     ))
     ->addElement(array(
+        'id' => 'favicon',
+        'label' => __('Favicon'),
+        'image' => true,
+        'type' => 'file'
+    ))
+    ->addElement(array(
         'id' => 'facebook',
         'label' => __('LABEL_FACEBOOK'),
     ))
@@ -147,6 +153,12 @@ if ($this->request->is('post')) {
             $filename = $data['author_logo']['name'];
             $filedata = $data['author_logo']['tmp_name'];
             $data['author_logo'] = new CurlFile($filedata, $filetype, $filename);
+        }
+        if (!empty($data['favicon']['name'])) {
+            $filetype = $data['favicon']['type'];
+            $filename = $data['favicon']['name'];
+            $filedata = $data['favicon']['tmp_name'];
+            $data['favicon'] = new CurlFile($filedata, $filetype, $filename);
         }
         // Call API
         $id = Api::call(Configure::read('API.url_companies_addupdate'), $data);

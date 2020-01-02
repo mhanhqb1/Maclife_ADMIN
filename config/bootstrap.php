@@ -259,7 +259,7 @@ if ($env == 'production') {
     include_once ('development/bootstrap.php');
 }
 
-define('DEFAULT_SITE_TITLE', 'LyonaBeauty Admin');
+define('DEFAULT_SITE_TITLE', 'CG4VN Admin');
 if (!defined('USE_SUB_DIRECTORY')) {
     define('USE_SUB_DIRECTORY', '');
 }
