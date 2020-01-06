@@ -28,6 +28,11 @@
                     <i class="fa fa-newspaper-o"></i> <span><?php echo __('LABEL_CATE'); ?></span>
                 </a>
             </li>
+            <li class="<?php if (in_array($controller, array('users'))) echo ' active ' ?>">
+                <a href="<?php echo $BASE_URL; ?>/users">
+                    <i class="fa fa-user"></i> <span><?php echo __('LABEL_USER_LIST'); ?></span>
+                </a>
+            </li>
             
             <li class="<?php if (in_array($controller, array('tags'))) echo ' active ' ?>">
                 <a href="<?php echo $BASE_URL; ?>/tags">

@@ -35,3 +35,7 @@ Configure::write('API.url_pages_addupdate', 'pages/addupdate');
 Configure::write('API.url_pages_detail', 'pages/detail');
 
 Configure::write('API.url_tags_all', 'tags/all');
+
+Configure::write('API.url_users_list', 'users/list');
+Configure::write('API.url_users_addupdate', 'users/addupdate');
+Configure::write('API.url_users_detail', 'users/detail');
