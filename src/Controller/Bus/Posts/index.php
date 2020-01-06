@@ -89,6 +89,14 @@ $this->SimpleTable
             'empty' => 0
         ))
         ->addColumn(array(
+            'id' => 'is_premium',
+            'title' => __('Premium'),
+            'rules' => array(
+                0 => 'No',
+                1 => 'Yes'
+            )
+        ))
+        ->addColumn(array(
             'id' => 'created',
             'type' => 'dateonly',
             'title' => __('LABEL_CREATED'),

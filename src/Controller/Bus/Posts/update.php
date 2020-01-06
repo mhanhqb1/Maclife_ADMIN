@@ -79,6 +79,14 @@ $this->UpdateForm->reset()
         'type' => 'editor'
     ))
     ->addElement(array(
+        'id' => 'is_premium',
+        'label' => __('Premium'),
+        'options' => array(
+            0 => 'No',
+            1 => 'Yes'
+        )
+    ))
+    ->addElement(array(
         'id' => 'tag',
         'label' => __('Tags')
     ))
