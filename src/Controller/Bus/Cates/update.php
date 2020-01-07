@@ -60,6 +60,10 @@ $this->UpdateForm->reset()
         'empty' => '-'
     ))
     ->addElement(array(
+        'id' => 'position',
+        'label' => __('LABEL_POSITION')
+    ))
+    ->addElement(array(
         'type' => 'submit',
         'value' => __('LABEL_SAVE'),
         'class' => 'btn btn-primary',

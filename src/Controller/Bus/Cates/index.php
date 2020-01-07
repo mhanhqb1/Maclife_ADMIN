@@ -67,6 +67,11 @@ $this->SimpleTable
             'empty' => '-'
         ))
         ->addColumn(array(
+            'id' => 'position',
+            'title' => __('LABEL_POSITION'),
+            'empty' => '-'
+        ))
+        ->addColumn(array(
             'id' => 'created',
             'type' => 'dateonly',
             'title' => __('LABEL_CREATED'),
