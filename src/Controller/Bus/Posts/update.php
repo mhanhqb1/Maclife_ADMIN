@@ -87,6 +87,11 @@ $this->UpdateForm->reset()
         )
     ))
     ->addElement(array(
+        'id' => 'premium_content',
+        'label' => __('Premium Content'),
+        'type' => 'editor'
+    ))
+    ->addElement(array(
         'id' => 'tag',
         'label' => __('Tags')
     ))
