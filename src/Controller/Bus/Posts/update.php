@@ -27,6 +27,7 @@ if (!empty($id)) {
 $cates = $this->Common->arrayKeyValue(Api::call(Configure::read('API.url_cates_all'), array(
     'type' => 2
 )), 'id', 'name');
+$tags = $this->Common->arrayKeyValue(Api::call(Configure::read('API.url_tags_all'), array()), 'id', 'name');
 
 // Create breadcrumb
 $listPageUrl = h($this->BASE_URL . '/posts');
@@ -93,7 +94,10 @@ $this->UpdateForm->reset()
     ))
     ->addElement(array(
         'id' => 'tag',
-        'label' => __('Tags')
+        'label' => __('Tags'),
+        'options' => $tags,
+        'empty' => '',
+        'multiple' => 'multiple'
     ))
     ->addElement(array(
         'id' => 'seo_keyword',
@@ -134,6 +138,9 @@ if ($this->request->is('post')) {
             $filename = $data['image']['name'];
             $filedata = $data['image']['tmp_name'];
             $data['image'] = new CurlFile($filedata, $filetype, $filename);
+        }
+        if (!empty($data['tag'])) {
+            $data['tags'] = implode(',', $data['tag']);
         }
         // Call API
         $id = Api::call(Configure::read('API.url_posts_addupdate'), $data);
