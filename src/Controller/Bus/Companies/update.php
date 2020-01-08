@@ -46,6 +46,12 @@ $this->UpdateForm->reset()
         'type' => 'file'
     ))
     ->addElement(array(
+        'id' => 'header_bg_image',
+        'label' => __('Search background image'),
+        'image' => true,
+        'type' => 'file'
+    ))
+    ->addElement(array(
         'id' => 'facebook',
         'label' => __('LABEL_FACEBOOK'),
     ))
@@ -159,6 +165,12 @@ if ($this->request->is('post')) {
             $filename = $data['favicon']['name'];
             $filedata = $data['favicon']['tmp_name'];
             $data['favicon'] = new CurlFile($filedata, $filetype, $filename);
+        }
+        if (!empty($data['header_bg_image']['name'])) {
+            $filetype = $data['header_bg_image']['type'];
+            $filename = $data['header_bg_image']['name'];
+            $filedata = $data['header_bg_image']['tmp_name'];
+            $data['header_bg_image'] = new CurlFile($filedata, $filetype, $filename);
         }
         // Call API
         $id = Api::call(Configure::read('API.url_companies_addupdate'), $data);
