@@ -144,16 +144,20 @@ if ($this->request->is('post')) {
         }
         // Call API
         $id = Api::call(Configure::read('API.url_posts_addupdate'), $data);
-        if (!empty($id) && !Api::getError()) {            
+        $error = Api::getError();
+        if (!empty($id) && !$error) {            
             $this->Flash->success(__('MESSAGE_SAVE_OK'));
             if ($isUpdate) {
                 return $this->redirect("{$this->BASE_URL}/{$this->controller}/update/{$id}");
             } else {
                 return $this->redirect("{$this->BASE_URL}/{$this->controller}");
             }
-            
         } else {
-            return $this->Flash->error(__('MESSAGE_SAVE_NG'));
+            $message = __('MESSAGE_SAVE_NG');
+            if (!empty($error['post_name'])) {
+                $message = 'Bài viết đã tồn tại';
+            }
+            return $this->Flash->error($message);
         }
     }
 }
