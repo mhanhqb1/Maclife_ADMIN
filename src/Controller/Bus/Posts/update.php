@@ -49,7 +49,12 @@ $this->UpdateForm->reset()
     ->addElement(array(
         'id' => 'id',
         'type' => 'hidden',
-        'label' => __('id'),
+        'label' => __('id')
+    ))
+    ->addElement(array(
+        'id' => 'disable',
+        'type' => 'hidden',
+        'label' => __('disable'),
     ))
     ->addElement(array(
         'id' => 'name',
@@ -113,7 +118,12 @@ $this->UpdateForm->reset()
     ->addElement(array(
         'type' => 'submit',
         'value' => __('LABEL_SAVE'),
-        'class' => 'btn btn-primary',
+        'class' => 'btn btn-primary btn-post-publish',
+    ))
+    ->addElement(array(
+        'type' => 'submit',
+        'value' => __('Save as draft'),
+        'class' => 'btn btn-info btn-save-draft',
     ))
     ->addElement(array(
         'type' => 'submit',

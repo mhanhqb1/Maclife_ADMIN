@@ -18,6 +18,14 @@ $(document).ready(function ($) {
     });
 
     // Buttons action
+    $(".btn-save-draft").click(function () {
+        $("#disable").val(1);
+        return true;
+    });
+    $(".btn-post-publish").click(function () {
+        $("#disable").val(0);
+        return true;
+    });
     $(".btn-disable").click(function () {
         return disableEnableMulti('disable');
     });
