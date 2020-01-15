@@ -15,4 +15,18 @@ class AdminsController extends AppController {
     public function updateprofile() {
         include ('Bus/Admins/updateprofile.php');
     }
+    
+    /**
+     * List page
+     */
+    public function index() {
+        include ('Bus/Admins/index.php');
+    }
+    
+    /**
+     * Add/update info
+     */
+    public function update($id = '') {
+        include ('Bus/Admins/update.php');
+    }
 }

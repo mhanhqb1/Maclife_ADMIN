@@ -11,6 +11,9 @@ Configure::write('API.rewriteUrl', array());
 
 Configure::write('API.url_admins_login', 'admins/login');
 Configure::write('API.url_admins_updateprofile', 'admins/updateprofile');
+Configure::write('API.url_admins_list', 'admins/list');
+Configure::write('API.url_admins_addupdate', 'admins/addupdate');
+Configure::write('API.url_admins_detail', 'admins/detail');
 
 Configure::write('API.url_companies_addupdate', 'companies/addupdate');
 Configure::write('API.url_companies_detail', 'companies/detail');

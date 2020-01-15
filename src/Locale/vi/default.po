@@ -402,3 +402,9 @@ msgstr "Cập nhật tag"
 
 msgid "LABEL_USER_LIST"
 msgstr "Danh sách Users"
+
+msgid "LABEL_UPDATE"
+msgstr "Cập nhật"
+
+msgid "LABEL_ADMIN_LIST"
+msgstr "Danh sách Admins"

@@ -41,6 +41,12 @@
                 </a>
             </li>
             
+            <li class="<?php if (in_array($controller, array('admins')) && !in_array($action, array('updateprofile'))) echo ' active ' ?>">
+                <a href="<?php echo $BASE_URL; ?>/admins">
+                    <i class="fa fa-user"></i> <span><?php echo __('LABEL_ADMIN_LIST'); ?></span>
+                </a>
+            </li>
+            
             <li class="treeview <?php if (in_array($controller, array('admins', 'companies', 'about'))) echo ' active ' ?>">
                 <a href="#">
                     <i class="fa fa-cogs"></i> 
