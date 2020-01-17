@@ -96,6 +96,23 @@ class SimpleTableHelper extends AppHelper {
             'enctype' => 'multipart/form-data',
             'id' => 'dataForm',
         ));
+        if (!empty($table['buttons'])) {
+            $html .= "<div class=\"form-group button-group\">";
+            foreach ($table['buttons'] as $control) {
+                if (empty($control['type']) || $control['type'] != 'submit') {
+                    continue;
+                }
+                if (isset($control['type'])) {
+                    unset($control['type']);
+                }
+                if (isset($control['button']) && $control['button']) {
+                    $html .= $this->Form->button($control['value'], $control);
+                } else {
+                    $html .= $this->Form->submit($control['value'], $control);
+                }
+            }
+            $html .= "</div>";
+        }
         $html .= "<table id=\"{$id}\" class=\"{$class}\" cellspacing=\"0\" width=\"100%\">";
         foreach ($columns as $i => $item) {
             if (empty($item['id'])) {
