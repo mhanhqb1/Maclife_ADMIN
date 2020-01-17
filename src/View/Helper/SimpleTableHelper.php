@@ -97,7 +97,7 @@ class SimpleTableHelper extends AppHelper {
             'id' => 'dataForm',
         ));
         if (!empty($table['buttons'])) {
-            $html .= "<div class=\"form-group button-group\">";
+            $html .= "<div class=\"form-group button-group\" style=\"margin-bottom: 0; margin-top: 15px;\">";
             foreach ($table['buttons'] as $control) {
                 if (empty($control['type']) || $control['type'] != 'submit') {
                     continue;
