@@ -65,7 +65,8 @@ $this->UpdateForm->reset()
         'id' => 'cate_id',
         'label' => __('LABEL_CATE'),
         'options' => $cates,
-        'empty' => '-'
+        'empty' => '-',
+        'multiple' => 'multiple'
     ))
     ->addElement(array(
         'id' => 'image',
@@ -151,6 +152,9 @@ if ($this->request->is('post')) {
         }
         if (!empty($data['tag'])) {
             $data['tags'] = implode(',', $data['tag']);
+        }
+        if (!empty($data['cate_id'])) {
+            $data['cate_id'] = implode(',', $data['cate_id']);
         }
         // Call API
         $id = Api::call(Configure::read('API.url_posts_addupdate'), $data);
