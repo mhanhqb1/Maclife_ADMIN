@@ -40,6 +40,14 @@ $this->UpdateForm->reset()
         'type' => 'file'
     ))
     ->addElement(array(
+        'id' => 'logo_width',
+        'label' => __('Chiều rộng logo(pixel)'),
+    ))
+    ->addElement(array(
+        'id' => 'logo_height',
+        'label' => __('Chiều cao logo(pixel)'),
+    ))
+    ->addElement(array(
         'id' => 'favicon',
         'label' => __('Favicon'),
         'image' => true,
