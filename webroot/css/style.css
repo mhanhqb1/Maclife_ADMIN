@@ -61,7 +61,7 @@ td, th {
     text-align: center;
 }
 .login-image img {
-    width: 70%;
+    width: auto;
     margin: 40px auto 20px;
 }
 .login-box .box-header {
